@@ -1,6 +1,17 @@
 <?php
+trait Disponibilità{
+    public $disponibilità;
+
+    public function GetDisponibilità(){
+         echo $this->disponibilità;
+    }
+
+}
 
 class Movie {
+    use Disponibilità;
+
+
     public $titolo;
     public $cover;
     public $regista;
@@ -8,13 +19,14 @@ class Movie {
     public $durata;
     public $genere;
 
-    public function __construct($titolo, $cover, $regista, $anno_di_uscita, $durata, $genere){
+    public function __construct($titolo, $cover, $regista, $anno_di_uscita, $durata, $genere, $disponibilità){
     $this->titolo = $titolo;
      $this->cover = $cover;
         $this->regista= $regista;
          $this->anno_di_uscita= $anno_di_uscita;
         $this->durata = $durata;
          $this->genere = $genere;
+         $this->disponibilità = $disponibilità;
 
     }
 
@@ -25,12 +37,15 @@ class Movie {
             echo $this->anno_di_uscita ."<br>";
             echo $this->durata ."<br>";
             foreach($this->genere as $elemento){
-                $elemento->getGenre();
-                                         
+                $elemento->getGenre();                        
             };
+             echo $this->GetDisponibilità();   
 
 
         }
+
+    
+    
 
 }
 
@@ -62,9 +77,9 @@ $genere3 = new Genre("Avventura", 14, "Film d'avventura");
 $genere4 = new Genre("Guerra", 15, "Film di guerra");
 
 
-$film1 = new Movie("inception", "cover1.jpg", "Nolan", 2010, 148, [$genere1, $genere3]);
+$film1 = new Movie("inception", "cover1.jpg", "Nolan", 2010, 148, [$genere1, $genere3], "On Demand");
 
-$film2 = new Movie("Gladiatore", "cover2.jpg", "Scott", 2000, 120, [$genere2, $genere4]);
+$film2 = new Movie("Gladiatore", "cover2.jpg", "Scott", 2000, 120, [$genere2, $genere4], "Al Cinema");
 
 
 
