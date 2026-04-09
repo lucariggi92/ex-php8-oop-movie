@@ -24,7 +24,10 @@ class Movie {
             echo $this->regista ."<br>";
             echo $this->anno_di_uscita ."<br>";
             echo $this->durata ."<br>";
-            echo $this->genere->getGenre();
+            foreach($this->genere as $elemento){
+                $elemento->getGenre();
+                                         
+            };
 
 
         }
@@ -55,10 +58,13 @@ $genere1 = new Genre("Fantascienza", 12, "Film di fantascienza");
 
 $genere2 = new Genre("Storico", 13, "Film Storico");
 
+$genere3 = new Genre("Avventura", 14, "Film d'avventura");
+$genere4 = new Genre("Guerra", 15, "Film di guerra");
 
-$film1 = new Movie("inception", "cover1.jpg", "Nolan", 2010, 148, $genere1);
 
-$film2 = new Movie("Gladiatore", "cover2.jpg", "Scott", 2000, 120, $genere2);
+$film1 = new Movie("inception", "cover1.jpg", "Nolan", 2010, 148, [$genere1, $genere3]);
+
+$film2 = new Movie("Gladiatore", "cover2.jpg", "Scott", 2000, 120, [$genere2, $genere4]);
 
 
 
