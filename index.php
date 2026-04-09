@@ -24,23 +24,50 @@ class Movie {
             echo $this->regista ."<br>";
             echo $this->anno_di_uscita ."<br>";
             echo $this->durata ."<br>";
-            echo $this->genere ."<br>";
+            echo $this->genere->getGenre();
 
 
         }
 
 }
 
+class Genre {
+    public $nome;
+    public $eta_minima;
+    public $descrizione;
+
+    public function __construct($nome, $eta_minima, $descrizione){
+        $this->nome = $nome;
+        $this->eta_minima = $eta_minima;
+        $this->descrizione =$descrizione;
+    }
+
+    public function getGenre(){
+        echo $this->nome ."<br>";
+            echo $this->eta_minima ."<br>";
+            echo $this->descrizione ."<br>";
+          
+    }
+}
 
 
+$genere1 = new Genre("Fantascienza", 12, "Film di fantascienza");
+
+$genere2 = new Genre("Storico", 13, "Film Storico");
 
 
-$film1 = new Movie("inception", "cover1.jpg", "Nolan", 2010, 148, "Fantascienza");
+$film1 = new Movie("inception", "cover1.jpg", "Nolan", 2010, 148, $genere1);
 
-$film2 = new Movie("Gladiatore", "cover2.jpg", "Scott", 2000, 120, "Storico");
+$film2 = new Movie("Gladiatore", "cover2.jpg", "Scott", 2000, 120, $genere2);
+
+
 
 $film1->getMovie();
 $film2->getMovie();
+
+var_dump($film1);
+var_dump($film2);
+
 
 
 ?>
