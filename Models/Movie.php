@@ -10,6 +10,7 @@ class Movie {
     public $durata;
     public $genere;
 
+
     public function __construct($titolo, $cover, $regista, $anno_di_uscita, $durata, $genere, $disponibilità){
     $this->titolo = $titolo;
      $this->cover = $cover;
@@ -18,6 +19,7 @@ class Movie {
         $this->durata = $durata;
          $this->genere = $genere;
          $this->disponibilità = $disponibilità;
+       
 
     }
 
@@ -30,7 +32,7 @@ class Movie {
             foreach($this->genere as $elemento){
                 $elemento->getGenre();                        
             };
-             echo $this->GetDisponibilità();   
+             echo $this->getDisponibilità();   
 
 
         }

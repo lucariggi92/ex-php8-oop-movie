@@ -1,8 +1,13 @@
 <?php
 trait Disponibilità{
     public $disponibilità;
+   
 
-    public function GetDisponibilità(){
+     public function setDisponibilità(){
+         $this->disponibilità =$disponibilità;
+    }
+
+     public function getDisponibilità(){
          echo $this->disponibilità;
     }
 
